@@ -1,17 +1,15 @@
-{ pkgs ? import <nixpkgs> {} }:pkgs.mkShell {
-  packages = with pkgs; [
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.mkShell {
+  packages = with pkgs; [ 
     gum
+    git
     gh
     kind
     kubectl
     yq-go
-    jq
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    google-cloud-sdk
     awscli2
+    eksctl
     azure-cli
-    upbound
-    teller
-    crossplane-cli
-    kubernetes-helm
   ];
 }

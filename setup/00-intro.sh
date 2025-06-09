@@ -42,10 +42,9 @@ rm -f .env
 # Control Plane Cluster #
 #########################
 
-kind create cluster --config kind.yaml
+#kind create cluster --config kind.yaml
 
-kubectl apply \
-    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply     --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
 ##############
 # Crossplane #
@@ -77,8 +76,8 @@ echo "## Which Hyperscaler do you want to use?" | gum format
 HYPERSCALER=$(gum choose "google" "aws" "azure")
 
 echo "export HYPERSCALER=$HYPERSCALER" >> .env
-
-if [[ "$HYPERSCALER" == "google" ]]; then
+echo $HYPERSCALER
+if [ "$HYPERSCALER" = "google" ]; then
 
     gcloud auth login
 
@@ -136,7 +135,7 @@ spec:
       name: gcp-creds
       key: creds" | kubectl apply --filename -
 
-elif [[ "$HYPERSCALER" == "aws" ]]; then
+elif [ "$HYPERSCALER" = "aws" ]; then
 
     AWS_ACCESS_KEY_ID=$(gum input --placeholder "AWS Access Key ID" --value "$AWS_ACCESS_KEY_ID")
     echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> .env
