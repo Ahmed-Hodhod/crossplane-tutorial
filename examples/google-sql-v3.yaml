@@ -16,6 +16,7 @@ metadata:
     author: Viktor Farcic <viktor@farcic.com>
 spec:
   id: my-db
+  # provided by the composition ( no need to define it there) 
   compositionSelector:
     matchLabels:
       provider: google

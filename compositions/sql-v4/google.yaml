@@ -59,6 +59,7 @@ spec:
           small: db-custom-1-3840
           medium: db-custom-16-61440
           large: db-custom-64-245760
+      # create the connection secret with the same name as the database
     - fromFieldPath: spec.id
       toFieldPath: spec.writeConnectionSecretToRef.name
     - fromFieldPath: spec.id

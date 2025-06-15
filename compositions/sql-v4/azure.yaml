@@ -7,7 +7,9 @@ metadata:
     provider: azure
     db: postgresql
 spec:
-  writeConnectionSecretsToNamespace: crossplane-system
+
+  writeConnectionSecretsToNamespace: crossplane-system # new   
+
   compositeTypeRef:
     apiVersion: devopstoolkitseries.com/v1alpha1
     kind: SQL

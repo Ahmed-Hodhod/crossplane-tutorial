@@ -45,5 +45,5 @@ spec:
             key: password
             name: my-db-password
             namespace: crossplane-system
-          instanceSelector:
+          instanceSelector: # match the instance created above dynamically (recommended)
             matchControllerRef: true

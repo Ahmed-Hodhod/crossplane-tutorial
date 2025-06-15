@@ -7,6 +7,7 @@ metadata:
     provider: google
     db: postgresql
 spec:
+  # refer to the composite resource that this composition will create
   compositeTypeRef:
     apiVersion: devopstoolkitseries.com/v1alpha1
     kind: SQL
@@ -47,4 +48,4 @@ spec:
             namespace: crossplane-system
           instanceSelector:
             matchLabels:
-              crossplane.io/composite: my-db
+              crossplane.io/composite: my-db # the composite resource name is my-db (static)
