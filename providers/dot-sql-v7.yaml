@@ -4,4 +4,4 @@ kind: Configuration
 metadata:
   name: crossplane-sql
 spec:
-  package: xpkg.upbound.io/hodhod/hodhod:v0.0.7
+  package: xpkg.crossplane.io/hodhod/hodhod:v0.2.0
