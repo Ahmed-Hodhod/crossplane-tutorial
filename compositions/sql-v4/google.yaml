@@ -62,12 +62,14 @@ spec:
       # create the connection secret with the same name as the database
     - fromFieldPath: spec.id
       toFieldPath: spec.writeConnectionSecretToRef.name
+
     - fromFieldPath: spec.id
       toFieldPath: spec.forProvider.rootPasswordSecretRef.name
       transforms:
       - type: string
         string:
           fmt: "%s-password"
+          
   - name: user
     base:
       apiVersion: sql.gcp.upbound.io/v1beta1
